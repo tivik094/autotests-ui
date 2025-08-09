@@ -2,7 +2,7 @@
 import os
 from playwright.sync_api import sync_playwright, expect
 
-def run_courses_flow():
+def test_empty_courses_list():
     state_file = "storage_state.json"
     if os.path.exists(state_file):
         os.remove(state_file)
@@ -52,6 +52,3 @@ def run_courses_flow():
         print("✅ Страница Courses открыта с сохранённым состоянием, заголовок и текст присутствуют.")
 
         browser.close()
-
-if __name__ == "__main__":
-    run_courses_flow()
