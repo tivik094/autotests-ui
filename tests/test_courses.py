@@ -1,11 +1,15 @@
 
+
 import os
+import pytest
 from playwright.sync_api import sync_playwright, expect
 
+@pytest.mark.courses
+@pytest.mark.regression
 def test_empty_courses_list():
     state_file = "storage_state.json"
 
-    # Чистим предыдущее состояние
+    # Чистим предыдущее состояние, чтобы не ловить «призраков»
     if os.path.exists(state_file):
         os.remove(state_file)
 
